@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}№ {{ task.id }} — {{ task.title }} | Русский/90{% endblock %}
+{% block content %}
+<section class="task-page">
+ <a class="back-link" href="/#training">← Все задания</a>
+ <div class="eyebrow">ТРЕНАЖЁР · {{ task.topic|upper }}</div>
+ <div class="task-title-row"><div><span class="task-number">ЗАДАНИЕ № {{ task.id }}</span><h1>{{ task.title }}</h1></div><span class="level">{{ task.level }}</span></div>
+ <div class="question-panel"><div class="panel-label">УСЛОВИЕ</div><p>{{ task.prompt }}</p><label for="answerInput">Твой ответ</label><input id="answerInput" class="answer-input" placeholder="Введи ответ..." autocomplete="off"><div class="answer-actions"><button class="btn btn-primary" id="checkAnswer">Проверить ответ</button><button class="btn btn-quiet" id="showAnswer">Показать решение</button></div><div id="feedback" class="feedback" aria-live="polite"></div><div id="solution" class="solution hidden"><div class="panel-label">РАЗБОР</div><p>{{ task.explain }}</p><div class="correct-answer"><b>Образец ответа:</b> {{ task.answer }}</div></div></div>
+ <div class="tip"><b>Совет:</b> сначала попробуй решить самостоятельно, а затем открой разбор. Так материал лучше запоминается.</div>
+</section>
+{{ task.answer|json_script:"answer-data" }}
+{% endblock %}

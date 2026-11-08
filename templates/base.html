@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Русский на 90 — подготовка к ЕГЭ{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'ege/style.css' %}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/"><span class="brand-mark">Р</span><span>РУССКИЙ<span class="brand-muted">/90</span></span></a>
+  <nav><a href="/#training">Тренажёр</a><a href="/#plan">План подготовки</a><a href="/#about">О проекте</a></nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">◐</button>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer><span>РУССКИЙ/90</span><span>Учись системно. Пиши уверенно.</span><span>ЕГЭ · 2027</span></footer>
+<script src="{% static 'ege/app.js' %}"></script>
+</body></html>
